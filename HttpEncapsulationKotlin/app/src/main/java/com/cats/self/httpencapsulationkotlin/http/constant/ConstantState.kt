@@ -8,7 +8,7 @@ class ConstantState {
         /**
          * 成功状态值
          */
-        val SUCCESS = "200"
+        const val SUCCESS = "200"
 
 //        val
     }

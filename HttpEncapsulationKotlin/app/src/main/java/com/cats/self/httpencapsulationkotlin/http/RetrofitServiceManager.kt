@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by cp on 2019/4/15.
  */
-class RetrofitServiceManager {
+class RetrofitServiceManager private constructor(){
     companion object {
         const val DEFAULT_TIME_OUT: Long = 5 //超时时间 5s
         const val DEFAULT_READ_TIME_OUT: Long = 10 //读取超时时间 10s
@@ -36,5 +36,10 @@ class RetrofitServiceManager {
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("")
                 .build()
+    }
+    private class SingletonHolder{
+        private companion object {
+            val INSTANCE : RetrofitServiceManager = RetrofitServiceManager()
+        }
     }
 }
